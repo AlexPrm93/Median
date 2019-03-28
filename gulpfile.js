@@ -7,9 +7,6 @@ var uglify			= require('gulp-uglifyjs'); // Connect minification .js
 var cssnano			= require('gulp-cssnano'); // Connect minification css
 var rename			= require('gulp-rename'); // Connect rename css (.min)
 var prefixer		= require('gulp-autoprefixer'); // Connect prefixes to .css
-var imagemin		= require('gulp-imagemin'); // Connect to resizing images
-var pngquant		= require('imagemin-pngquant'); // Connect to resizing .png
-var cache				= require('gulp-cache'); // Connect cache for img
 
 // For synchronization browser with code
 gulp.task('browser-sync', function () {
@@ -24,11 +21,6 @@ gulp.task('browser-sync', function () {
 // For recompile dist folder
 gulp.task('clean', function () {
 	return del.sync('dist/');
-});
-
-// For clearing cache
-gulp.task('clear', function () {
-	return cache.clearAll();
 });
 
 // For add frameworks and plugins to project
@@ -52,7 +44,24 @@ gulp.task('add-libs', function () {
 
 // For compilation less-file to css-file
 gulp.task('less', function () {
-	return gulp.src('src/less/*.less')
+	return gulp.src(['src/less/main.less',
+									'src/less/header.less',
+									'src/less/sections/main-info.less',
+									'src/less/sections/about-teacher.less',
+									'src/less/sections/certificates.less',
+									'src/less/sections/teacher-clients.less',
+									'src/less/sections/video-review.less',
+									'src/less/sections/learn-profession.less',
+									'src/less/sections/course-program.less',
+									'src/less/sections/course-payment.less',
+									'src/less/sections/reviews.less',
+									'src/less/sections/life-changes.less',
+									'src/less/sections/try-for-free.less',
+									'src/less/sections/support.less',
+									'src/less/sections/questions.less',
+									'src/less/footer.less',
+									'src/less/animation.less',
+									'src/less/media.less'])
 				.pipe(concat('style.less'))
 				.pipe(less())
 				.pipe(prefixer({
@@ -96,52 +105,31 @@ gulp.task('scripts-min', function () {
 				 .pipe(gulp.dest('dist/js/'))
 });
 
-//  For minimizing img and cache them
-gulp.task('img', function () {
-	return gulp.src('src/img/**/*')
-				.pipe(cache
-					(imagemin([
-						imagemin.gifsicle({interlaced: true}),
-						imagemin.jpegtran({progressive: true}),
-						imagemin.optipng({optimizationLevel: 5}),
-						imagemin.svgo({
-							plugins: [
-								{removeViewBox: true},
-								{cleanupIDs: false}
-							]
-						}),
-						imagemin(['images/*.png'], 'build/images', {
-							use: [pngquant()]
-						})
-					]))
-				)
-				.pipe(gulp.dest('dist/img/'))
-});
-
-
-
 gulp.task('watch', ['browser-sync', 'add-libs', 'less'], function () {
 	gulp.watch('src/less/**/*.less', ['less']);
 	gulp.watch('src/**/*.html', browserSync.reload);
 	gulp.watch('src/js/**/*.js', browserSync.reload);
 });
 
-gulp.task('prod', ['clean', 'add-libs', 'img', 'less', 'css-min', 'scripts-min'],
+gulp.task('build', ['add-libs', 'less', 'css-min', 'scripts-min'],
 	function () {
 
-	var prodFonts = gulp.src('src/fonts/**/*')
+	var buildFonts = gulp.src('src/fonts/**/*')
 									.pipe(gulp.dest('dist/fonts/'));
 
-	var prodLibs = gulp.src('src/libs/**/*')
+	var buildImg = gulp.src('src/img/**/*')
+									.pipe(gulp.dest('dist/img/'));
+
+	var buildLibs = gulp.src('src/libs/**/*')
 								 .pipe(gulp.dest('dist/libs'))
 
-	var prodCss = gulp.src('src/css/**/*.css')
+	var buildCss = gulp.src('src/css/**/*.css')
 								.pipe(gulp.dest('dist/css/'));
 
-	var prodJs = gulp.src('src/js/**/*')
+	var buildJs = gulp.src('src/js/**/*')
 							.pipe(gulp.dest('dist/js/'));
 
-	var prodHtml = gulp.src('src/**/*.html')
+	var buildHtml = gulp.src('src/**/*.html')
 								.pipe(gulp.dest('dist/'))
 
 });
