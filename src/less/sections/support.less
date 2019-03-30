@@ -1,0 +1,113 @@
+.support {
+  padding: 150px 0 215px;
+  // user-select: none;
+  .container {
+    padding: 0 80px;
+		z-index: -1;
+		position: relative;
+    h2 {
+      line-height: 45px;
+      font-size: 30px;
+      font-weight: bold;
+    }
+    p {
+      padding-top: 25px;
+      line-height: 30px;
+      font-size: 16px;
+      font-weight: 500;
+    }
+    .payment-choise {
+      margin: 0 50px;
+      input[type=range] {
+        appearance: none;
+        outline: none;
+        box-sizing: border-box;
+        width: 100%;
+        height: 20px;
+        border: 1px solid #575758;
+        border-radius: 50px;
+        background-image: linear-gradient(to right, @main-color 0%, @main-color 50%, #a6a6a6 50%, #a6a6a6 100%);
+        &::-webkit-slider-thumb {
+          appearance: none;
+          cursor: pointer;
+          position: relative;
+          width: 22px;
+          height: 22px;
+          border: 1px solid #575758;
+          border-radius: 100%;
+          background-color: #fbfcfd;
+        }
+      }
+      .gradation-block {
+        display: flex;
+        justify-content: space-around;
+        margin: 20px 0 50px;
+        .gradation-box {
+          position: relative;
+          width: 100px;
+          line-height: 30px;
+          font-size: 12px;
+          font-weight: 500;
+          text-align: center;
+          color: #838383;
+          &::after {
+            content: "";
+            position: absolute;
+            z-index: 10;
+            top: -20px;
+            left: 50%;
+            width: 2px;
+            height: 12px;
+            background-color: #838383;
+            transform: translateX(-50%);
+          }
+          &:first-child {
+            padding-left: 1.4%;
+            text-align: left;
+            &::after {
+              left: 13%;
+            }
+          }
+          &:nth-child(2) {
+            text-align: left;
+            transform: translateX(5%);
+            &::after {
+              left: 20%;
+            }
+          }
+          &:nth-child(3) {
+            text-align: left;
+            transform: translateX(18%);
+            &::after {
+              left: 20%;
+            }
+          }
+          &:nth-child(5) {
+            transform: translateX(12%);
+            &::after {
+              left: 48%;
+            }
+          }
+          &:nth-child(6) {
+            transform: translateX(23%);
+            &::after {
+              left: 50%;
+            }
+          }
+          &:last-child {
+            text-align: right;
+            transform: translateX(16%);
+            &::after {
+              left: auto;
+              right: 27%;
+            }
+          }
+        }
+      }
+    }
+  }
+  .btn-main {
+    margin: 0 auto;
+    display: block;
+  }
+}

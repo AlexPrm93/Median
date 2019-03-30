@@ -1,0 +1,92 @@
+.course-program, .questions {
+  padding: 120px 0;
+  color: #000;
+  user-select: none;
+  .container {
+		padding: 0 80px;
+		z-index: 10;
+		position: relative;
+    h2 {
+      padding: 25px 0;
+      font-size: 30px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    .program-accordeon, .questions-accordeon {
+      display: inline-block;
+      width: 100%;
+      .accordeon-item {
+        margin-top: 30px;
+        background-color: #fff;
+        box-shadow: 0px 0px 16.38px 1.62px rgba(2, 6, 8, 0.1);
+        &.active {
+          .accordeon-title {
+            &::after {
+              display: none;
+            }
+          }
+          .accordeon-body {
+            display: block;
+          }
+        }
+        .accordeon-title {
+          position: relative;
+          padding: 14px 45px;
+          font-size: 25px;
+          font-weight: bold;
+          color: @main-color;
+          &::before, &::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 50px;
+            width: 22px;
+            height: 3px;
+            background-color: @main-color;
+            transform: translateY(-50%);
+            transition: transform 0.4s ease-out;
+          }
+          &::after {
+            display: block;
+            right: 59px;
+            height: 22px;
+            width: 3px;
+          }
+        }
+        .accordeon-body {
+          display: none;
+          .accordeon-subtitle {
+            padding: 40px 120px 30px 135px;
+            font-size: 20px;
+            font-weight: bold;
+          }
+          .accordeon-info {
+            line-height: 30px;
+            padding: 0 120px;
+            font-size: 16px;
+            font-weight: 500;
+          }
+          .accordeon-list {
+            line-height: 25px;
+            padding: 20px 120px 75px 135px;
+            li {
+              position: relative;
+              font-size: 14px;
+              font-weight: 500;
+              &::before {
+                content: "\2022";
+                position: absolute;
+                left: -15px;
+                width: 5px;
+                height: 5px;
+                line-height: 0.5;
+                font-size: 33px;
+                color: @main-color;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

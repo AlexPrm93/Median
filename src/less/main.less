@@ -1,0 +1,97 @@
+@main-color: #3b5998;
+@option-color: #8B9DC3;
+
+body, html, main, aside, nav, header, footer, article, section, figure, div, h1, h2, h3, h4, h5, hgroup, svg, img, label, input, form, button, span, p, strong, ul, li, ol, i{
+  box-sizing:border-box;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent;
+  font-weight: normal;
+  border:0;
+  outline:0;
+}
+a {
+	text-decoration: none;
+	cursor: pointer;
+	color: black;
+}
+select {
+	outline: none;
+	border: none;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Montserrat';
+}
+.wrapper {
+  flex-grow: 1;
+}
+.container {
+	max-width: 1580px;
+	margin: 0 auto;
+}
+.line {
+  width: 140px;
+  height: 6px;
+  background-color: @main-color;
+}
+.btn {
+  border: 2px solid white;
+  border-radius: 4px;
+  padding: 15px 65px;
+  color: white;
+  font-family: 'Montserrat';
+  font-weight: 600;
+  display: inline-block;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  font-size: 16px;
+  background-color: transparent;
+  &:hover {
+    background-color: #ffde00;
+    color: black;
+    border-color: #ffde00;
+    &:after {
+      content: '';
+      height: 6px;
+      display: block;
+      position: absolute;
+      bottom: -6px;
+      left: -2px;
+      right: -2px;
+      border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
+      background-color: #ffa200;
+    }
+  }
+}
+.btn-main {
+  cursor: pointer;
+  border: 2px solid #ffde00;
+  border-radius: 4px;
+  padding: 15px 65px;
+  color: black;
+  font-family: 'Montserrat';
+  font-weight: 600;
+  display: inline-block;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  font-size: 16px;
+  background-color: #ffde00;
+  &:after {
+    content: '';
+    height: 6px;
+    display: block;
+    position: absolute;
+    bottom: -6px;
+    left: -2px;
+    right: -2px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    background-color: #ffa200;
+  }
+}
