@@ -3,16 +3,6 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 	position: relative;
-	.bg {
-		position: absolute;
-		z-index: 1;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		opacity: 0.8;
-		background-color: @main-color;
-	}
 	.container {
 		padding: 0 80px;
 		z-index: 10;
@@ -21,12 +11,31 @@
 		.title {
 			text-align: center;
 			margin-bottom: 50px;
+			padding-top: 100px;
 			h1 {
 				font-family: 'Montserrat';
 				font-weight: bold;
 				font-size: 50px;
-				padding-top: 100px;
 				padding-bottom: 50px;
+				display: inline-block;
+				position: relative;
+				&:after {
+					content: 'Онлайн';
+					color: @main-color;
+					font-size: 16px;
+					line-height: 50px; 
+					font-weight: 600;
+			    line-height: 55px;
+    			position: absolute;
+			    right: -86px;
+			    top: -55px;
+					width: 100px;
+					height: 70px;
+					display: inline-block;
+					background-image: url(../img/Rectangle.png);
+					background-size: contain;
+					background-repeat: no-repeat;
+				}
 			}
 			p {
 				font-family: 'Montserrat';
@@ -39,9 +48,6 @@
 		}
 		.circle {
 			border-radius: 100%;
-			border-width: 14px;
-			border-style: solid;
-      border-color: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
 			height: 220px;
 			width: 220px;
 			display: flex;
@@ -51,6 +57,44 @@
 			flex-wrap: wrap;
 			text-align: center;
 			font-family: 'Montserrat';
+			position: relative;
+		@keyframes rotate {
+			0% {
+				transform: rotate(0deg);
+			}
+			50% {
+				transform: rotate(180deg);
+			}
+			100% {
+				transform: rotate(360deg);
+			}
+		}
+			.circle-around {
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				animation: rotate 3s linear infinite;
+				
+				background-size: 100%;
+				background-repeat: no-repeat;
+				z-index: 100;
+				width: 100%;
+				height: 100%;
+				&.v1 {
+					background-image: url(../img/circle-round1.png);
+				}				
+				&.v2 {
+					background-image: url(../img/circle-round2.png);
+				}
+				&.v3 {
+					background-image: url(../img/circle-round3.png);
+				}
+				&.v4 {
+					background-image: url(../img/circle-round4.png);
+				}
+			}
 			.numb {
 				display: block;
 				font-weight: 300;
@@ -68,6 +112,34 @@
 			padding-bottom: 85px;
 			text-align: center;
 			.btn {
+			  border: 2px solid white;
+			  border-radius: 4px;
+			  padding: 15px 65px;
+			  color: white;
+			  font-family: 'Montserrat';
+			  font-weight: 600;
+			  display: inline-block;
+			  position: relative;
+			  transition: all 0.3s ease-in-out;
+			  font-size: 16px;
+			  background-color: transparent;
+				&:hover {
+			    background-color: #ffde00;
+			    color: black;
+			    border-color: #ffde00;
+			    &:after {
+			      content: '';
+			      height: 6px;
+			      display: block;
+			      position: absolute;
+			      bottom: -6px;
+			      left: -2px;
+			      right: -2px;
+			      border-bottom-left-radius: 3px;
+			      border-bottom-right-radius: 3px;
+			      background-color: #ffa200;
+			    }
+			  }
 				&:last-child {
 					margin-left: 115px;
 				}

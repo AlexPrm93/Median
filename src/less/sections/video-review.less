@@ -1,0 +1,49 @@
+.video-review {
+	margin-bottom: 105px;
+	background-image: url(../img/video-section-bg.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	padding-top: 110px;
+	padding-bottom: 55px; 
+	.video {
+		margin-right: 65px;
+		position: relative;
+		.play-video {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			z-index: 10;
+			background-color: rgba(0,0,0,0.5);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			&:hover {
+				.img img {
+					transform: rotate(360deg);
+					transition: all 0.7s ease-in-out;
+					cursor: pointer;
+				}
+			}
+		}
+	}
+	.text {
+		color: white;
+		.line {
+			background-color: #8b9dc3;
+			margin-bottom: 25px;
+		}
+		h2 {
+			font-weight: bold;
+			font-size: 30px;
+			line-height: 40px;
+			margin-bottom: 50px;
+		}
+		p {
+			margin-bottom: 35px;
+			font-size: 16px;
+			line-height: 25px;
+		}
+	}
+}

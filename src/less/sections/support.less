@@ -1,9 +1,8 @@
 .support {
   padding: 150px 0 215px;
-  // user-select: none;
+  user-select: none;
   .container {
     padding: 0 80px;
-		z-index: -1;
 		position: relative;
     h2 {
       line-height: 45px;
@@ -18,7 +17,21 @@
     }
     .payment-choise {
       margin: 0 50px;
-      input[type=range] {
+      .payment-output {
+        position: relative;
+        margin: 0 13px;
+        .range-result {
+          position: absolute;
+          top: -40px;
+          left: 50%;
+          line-height: 30px;
+          font-size: 16px;
+          font-weight: 600;
+          color: @main-color;
+          transform: translateX(-50%);
+        }
+      }
+      #payment-range {
         appearance: none;
         outline: none;
         box-sizing: border-box;
@@ -109,5 +122,6 @@
   .btn-main {
     margin: 0 auto;
     display: block;
+    padding: 15px 95px;
   }
 }

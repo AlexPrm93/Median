@@ -49,6 +49,7 @@ gulp.task('less', function () {
 									'src/less/sections/main-info.less',
 									'src/less/sections/about-teacher.less',
 									'src/less/sections/certificates.less',
+									'src/less/sections/certificates-example.less',
 									'src/less/sections/teacher-clients.less',
 									'src/less/sections/video-review.less',
 									'src/less/sections/learn-profession.less',
