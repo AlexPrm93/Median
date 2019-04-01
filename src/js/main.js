@@ -19,11 +19,11 @@ function accordeonSlider(obj) {
     $(accordeonBody).slideDown(500);
     $(parentBlock).addClass('active');
   }
-}
+};
 
 $('#payment-range').on('input', function() {
   paymentRange();
-})
+});
 
 function paymentRange() {
   const rangeValue = $('#payment-range').val();
@@ -33,7 +33,7 @@ function paymentRange() {
   $('#payment-range').css("background-image", "linear-gradient(to right, #3b5998 0%, #3b5998 " + val + "%, #a6a6a6 " + val + "%, #a6a6a6 100%)");
   $('.range-result').css("left", val + "%");
   $('.range-result').empty().append("$" + price);
-}
+};
 
 // for video
 $('.play-video').click(function(){
@@ -52,7 +52,7 @@ function onYouTubeIframeAPIReady(){
     width: '100%',
     videoId: 'Pul8lw7WRsw'
   });
-}
+};
 
 var $tab = $('.course-payment');
 
@@ -68,20 +68,25 @@ $tab.find('[data-tab]').click(function() {
 
 });
 
-
-
 $('.reviews .slider-container').slick({
   dots: true,
   arrows: true,
   prevArrow: '.reviews .arrow-prev',
   nextArrow: '.reviews .arrow-next',
-  infinite: true,
+  infinite: false,
   speed: 500,
   autoplay: false,
   slidesToShow: 2,
-  slidesToScroll: 1
+  slidesToScroll: 1,
+  responsive: [
+    {
+      breakpoint: 992,
+      settings: {
+        slidesToShow: 1
+      }
+    }
+  ]
 });
-
 
 $('.teacher-clients .slider-container').slick({
   dots: false,
@@ -100,6 +105,14 @@ $('.teacher-clients .slider-container').slick({
         slidesToScroll: 2,
         infinite: true,
         dots: true
+      }
+    },
+    {
+      breakpoint: 769,
+      settings: {
+        dots: false,
+        slidesToShow: 3,
+        slidesToScroll: 3
       }
     },
     {
